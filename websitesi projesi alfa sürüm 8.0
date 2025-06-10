@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YılmazYapı | Anka Seramik</title>
+  <style>
+    :root {
+      --rize-blue: #008bd0;
+      --rize-green: #009430;
+      --rize-white: #ffffff;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, var(--rize-blue) 0%, var(--rize-green) 100%);
+      color: #222;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--rize-blue);
+      color: var(--rize-white);
+      padding: 24px 0 12px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    nav a {
+      color: var(--rize-white);
+      text-decoration: none;
+      margin: 0 18px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--rize-green);
+    }
+    .language-switcher button {
+      background: var(--rize-blue);
+      color: var(--rize-white);
+      border: none;
+      padding: 8px 14px;
+      margin: 0 4px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .language-switcher button.active,
+    .language-switcher button:hover {
+      background: var(--rize-green);
+    }
+    .banner {
+      background: linear-gradient(90deg, var(--rize-blue) 60%, var(--rize-green) 100%);
+      color: #fff;
+      padding: 40px 0 20px 0;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .product-filter-bar {
+      background: #fff;
+      border-radius: 8px;
+      margin: 30px auto 20px auto;
+      max-width: 900px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+    .product-filter-bar select, .product-filter-bar input {
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      min-width: 120px;
+    }
+    .product-filter-bar button {
+      background: var(--rize-blue);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 18px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .product-filter-bar button:hover {
+      background: var(--rize-green);
+    }
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+    .product-card {
+      background: var(--rize-white);
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin: 15px;
+      padding: 15px;
+      text-align: center;
+      width: 260px;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .product-card img {
+      max-width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+      background: #f9f9f9;
+    }
+    .product-card h3 {
+      color: var(--rize-blue);
+    }
+    .product-card span {
+      color: var(--rize-green);
+      font-weight: bold;
+    }
+    footer {
+      background: var(--rize-green);
+      color: var(--rize-white);
+      text-align: center;
+      padding: 24px 0 12px 0;
+      margin-top: 40px;
+    }
+    .footer-logos img {
+      height: 40px;
+      margin: 0 10px;
+      vertical-align: middle;
+    }
+    @media (max-width: 900px) {
+      .product-card {
+        width: 90vw;
+        margin: 10px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner" id="banner-title">
+    YılmazYapı | Anka Seramik
+  </div>
+  <header>
+    <nav>
+      <a href="#about" data-i18n="about">Hakkımızda</a>
+      <a href="#shipping" data-i18n="shipping">Kargo ve İade Politikası</a>
+      <a href="#catalogue" data-i18n="catalogue">Ürün ve Fiyat Kataloğu</a>
+      <a href="#products" data-i18n="products">Ürünler</a>
+      <a href="#contact" data-i18n="contact">İletişim</a>
+      <span class="language-switcher">
+        <button id="lang-tr" class="active">TR</button>
+        <button id="lang-en">EN</button>
+      </span>
+    </nav>
+  </header>
+  <main>
+    <form id="filter-form" class="product-filter-bar">
+      <select name="group">
+        <option value="">Ürün Grubu</option>
+        <option value="seramik">Seramik Karolar</option>
+        <option value="porselen">Sırlı Porselen Karolar</option>
+        <option value="duvar">Duvar Karoları</option>
+        <option value="zemin">Zemin Karoları</option>
+      </select>
+      <select name="size">
+        <option value="">Boyut</option>
+        <option value="80x160">80x160</option>
+        <option value="120x120">120x120</option>
+        <option value="60x120">60x120</option>
+        <option value="60x60/20mm">60x60/20mm</option>
+        <option value="15x90">15x90</option>
+        <option value="20x120">20x120</option>
+        <option value="30x60">30x60</option>
+        <option value="45x45">45x45</option>
+      </select>
+      <input type="text" name="model" placeholder="Model Adı">
+      <select name="color">
+        <option value="">Renk</option>
+        <option value="white">Beyaz</option>
+        <option value="black">Siyah</option>
+        <option value="grey">Gri</option>
+        <option value="beige">Bej</option>
+        <option value="blue">Mavi</option>
+        <option value="green">Yeşil</option>
+        <option value="red">Kırmızı</option>
+      </select>
+      <button type="submit" data-i18n="filter">Filtrele</button>
+    </form>
+    <section id="product-container" class="product-list">
+      <!-- Sırlı porselen karolar 30x60 -->
+      <div class="product-card">
+        <img src="anka seramik/Sırlı porselen karolar 30x60/classic carrara/classiccarrara_30x60.jpeg" alt="classic Carrara_30x60 - Ürün 1" />
+        <h3>Sırlı porselen karolar 30x60</h3>
+        <p>Classic Carrara</p>
+      </div>
+      <!-- Sırlı Porselen karolar 60x60/20mm -->
+       <div class="product-card">
+        <img src="anka seramik/Sırlı porselen karolar 60x60 20mm/cement/cement_60x60I20mm.antrasit.jpeg  alt="cement_60x60I20mm antrasit"/>
+        <h3> <Cement Sırlı porselen karolar 60x60I20mm>/h3>
+        <p>Cement Antrasit 60x60I20mm</p>
+      </div>
+      <!-- Sırlı Porselen Karolar 80x160-->
+      <div class="product-card">
+        <img src="anka seramik/Sırlı porselen karolar 80x160/aden/aden_80x160.koyugri.jpeg" alt="Duvar ve yer karoları 45x45x - aden_koyugri_80x160" />
+        <h3>Sırlı Porselen Karolar - Aden aden_Koyu Gri  80x160</h3>
+        <p>aden_koyugri 80x160</p>
+      </div>
+      <!--Sırlı Porselen Karolar 20x120-->
+      <div class="product card">
+        <img src="anka seramik/Sırlı porselen karolar 20x120/amazon/amazon_20x120.akçaağaç.jpeg" alt="Duvar ve yer karoları 20x120 - amazon_20x120_akçaağaç"/>
+        <h3> Sırlı Porselen Karolar - amazon_20x120_akçaağaç</h3>
+        <p> amazon_akçaağaç 20x120</p>
+      </div>
+      <!-- Sırlı Porselen Karolar 20x120-->
+       <div class="product card">
+        <img src="anka seramik/Sırlı porselen karolar 20x120/amazon/amazon_20x120.gri.jpeg" alt="Duvar ve yer karoları 20x120 - amazon_20x120_gri"/>
+        <h3> Sırlı Porselen Karolar - amazon_20x120_gri</h3>
+        <p> amazon_20x120_gri</p>
+       </div>
+       <!-- Sırlı Porselen karolar 20x120 -->
+        <div class="product card">
+<img src="anka seramik/Sırlı porselen karolar 20x120/amazon/amazon_20x120.kahve.jpeg" alt="Duvar ve yer karoları 20x120 - amazon_20x120_kahve"/>
+<h3> Sırlı Porselen Karolar - amazon_20x120_kahve</h3>
+<p> amazon_20x120_kahve</p>
+        </div>
+      <!-- Sırlı Porselen Karolar 20x120 -->
+         <div class="product card"
+          <img src="anka seramik/Sırlı porselen karolar 20x120/amazon/amazon_20x120.meşe.jpeg" alt="Duvar ve yer karoları " amazon_20x120_meşe"/>
+          <h3> Sırlı POrselen Karolar - amazon_20x120_meşe</h3>
+          <p> amazon_20x120_meşe</p>
+      </div>
+      <!-- Duvar ve yer karoları 45x45 -->
+      <div class="product-card">
+        <img src="anka seramik/Duvar ve yer karoları 45x45/Delta/delta_45x45.multibej.jpeg" alt="Duvar ve yer karoları 45x45 - delta_45x45 " />
+        <h3>Delta_multigri_45x45</h3>
+        <p>Delta_multigri_45x45</p>
+      </div>
+      <!-- Duvar ve Yer  Karoları 45x45 -->
+      <div class="product card">
+        <img src="anka seramik/Duvar ve yer karoları 45x45/Galata/galata_45x45.antrasit.jpeg" alt="Duvar ve yer karoları 45x45x - galata_45x45" />
+        <h3>galata_antrasit_45x45/h3>
+        <p>galata_antrasit_45x45</p>
+      </div>
+      <!-- Duvar ve yer karoları 15x90 -->
+      <div class="product card">
+        <img src="anka seramik/Sırlı porselen karolar 15x90/pelit/pelit_15x90.bone.jpeg" alt="Duvar ve yer karoları 15x90 - pelit_15x90 "/>
+        <h3> pelit_bone_15x90</h3>
+        <p>pelit_bone_15x90</p>
+      </div>
+      <!-- Duvar ve Yer Karoları 15x90 -->
+      <div class="product-card"
+        <img src="anka seramik/Sırlı porselen karolar 15x90/pelit/pelit_15x90.antrasit.jpeg" alt="Duvar ve yer karoları 15x90 - pelit_15x90_antrasit" />
+        <h3> pelit_antrasit_15x90</h3>
+        <p>pelit_antrasit_15x90</p>
+    </div>
+      <!-- Duvar ve Yer Karoları 15x90 --> 
+    <div class="product-card"
+    <img src="anka seramik/Sırlı porselen karolar 15x90/pelit/pelit_15x90.gri.jpeg" alt="Duvar ve yer karoları 15x90 - pelit_15x90_gri" />
+    <h3> pelit_15x90_gri</h3>
+    <p> pelit_15x90_gri</p>
+  </div>
+  <!-- Duvar ve Yer Karoları 15x90 -->
+  <div class="product-card"
+  <img src="anka seramik/Sırlı porselen karolar 15x90/pelit/pelit_15x90.kahve.jpeg" alt="Duvar ve yer Karoları 15x90 - pelit_15x90_kahve" /> 
+   <h3> pelit_15x90_kahve</h3>
+   <p> pelit_15x90_kahve</p>
+</div>
+<!-- Duvar ve Yer Karoları 120x120 -->
+ <div class="product-card"
+    <img src="anka seramik/Sırlı Porselen Karolar120x120/vesna/vesna_120x120.antrasit.jpeg" alt="Duvar ve yer karoları 120x120 - vesna_120x120_antrasit" />
+ <h3> vesna_120x120_antrasit</h3>
+ <p> vesna_120x120_antrasit</p>
+</div>
+<!-- Duvar ve Yer Karoları 120x120-->
+<div class="product-card"
+   <img src="anka seramik/Sırlı Porselen Karolar120x120/vesna/vesna_120x120.bone.jpeg" alt="Duvar ve Yer Karoları 120x120 - vesna_120x120_bone" />
+<h3> vesna_120x120_bone</h3>
+<p> vesna_120x120_bone</p>
+</div>
+<!-- Duvar ve Yer karoları 120x120-->
+ <div class="product-card"
+    <img src="anka seramik/Sırlı Porselen Karolar120x120/vesna/vesna_120x120.gri.jpeg" alt="Duvar ve Yer Karoları 120x120 - vesna_120x120_gri" />
+ <h3> vesna_120x120_gri</h3>
+ <p> vesna_120x120_gri</p>
+</div>
+</section>
+  </main>
+  <footer>
+    <div class="footer-logos">
+      <img src="yilmazyapi-logo.jpg" alt="YılmazYapı Logo">
+      <img src="anka-seramik-logo.jpg" alt="Anka Seramik Logo">
+    </div>
+    <div>
+      <a href="#about">Hakkımızda</a> | 
+      <a href="#shipping">Kargo ve İade Politikası</a> | 
+      <a href="#catalogue">Ürün ve Fiyat Kataloğu</a> | 
+      <a href="#contact">İletişim</a>
+    </div>
+    <div style="margin-top:10px;">
+      &copy; 2025 YılmazYapı. Tüm hakları saklıdır.
+    </div>
+  </footer>
+  <script>
+    // Simple language switcher
+    const tr = {
+      about: "Hakkımızda",
+      shipping: "Kargo ve İade Politikası",
+      catalogue: "Ürün ve Fiyat Kataloğu",
+      products: "Ürünler",
+      contact: "İletişim",
+      filter: "Filtrele"
+    };
+    const en = {
+      about: "About Us",
+      shipping: "Shipping & Refund Policy",
+      catalogue: "Product & Price Catalogue",
+      products: "Products",
+      contact: "Contact",
+      filter: "Filter"
+    };
+   
+    setLang("tr");
+  </script>
+</body>
+</html>
